@@ -64,7 +64,7 @@ class Polls(db.Model):
             "option2" : self.option2,
             "option3" : self.option3,
             "option4" : self.option4,
-            "voting_users" : self.user.username
+            "voting_users" : [a.serialize() for a in self.votes]
         }
 
 class Voters_Table(db.Model):

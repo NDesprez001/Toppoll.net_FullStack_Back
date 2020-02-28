@@ -84,7 +84,24 @@ def seed():
     seeds.run()
     return 'seeds ran'
 
-@app.route('/polls', methods=['POST'])
+
+@app.route('/polls', methods=['GET'])
+def get_polls():
+    polls = Polls.query.all()
+    list_of_polls = [{
+        'id': i.id,
+        'question': i.poll_question
+    } for i in polls]
+    return jsonify( list_of_polls )
+
+
+@app.route('/polls/<int:id>', methods=['GET'])
+def get_poll(id):
+    poll = Polls.query.get(id)
+    return jsonify( poll.serialize() )
+
+
+@app.route('/polls/<int:user_id>', methods=['POST'])
 @jwt_required
 def poll_maker():
     
@@ -105,13 +122,13 @@ def poll_maker():
     if len(empty_props) > 0:
         raise APIException(f'Missing {", ".join(empty_props)} data in json')
 
-    client = Users(
-        username = json['username']
-    )
+    client = Users.query.get(user_id)
+    if client is None:
+        raise APIException(f'User not found')
 
     db.session.add(Polls(
         poll_question = json['poll_question'],
-        creator_user_id = client.id,
+        creator_user_id = user_id,
         poll_description = json['poll_description'],
         info_link = json['info_link'],
         option1 = json['option1'],
