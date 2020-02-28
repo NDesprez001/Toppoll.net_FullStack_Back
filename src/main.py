@@ -3,13 +3,14 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 import seeds
+import utils
 from flask import Flask, request, jsonify, url_for
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from flask_jwt_simple import JWTManager, create_jwt, jwt_required
 from utils import APIException, generate_sitemap
-from models import db, Users
+from models import db, Users, Polls, Voters_Table
 #from models import Person
 
 app = Flask(__name__)
@@ -32,7 +33,7 @@ def handle_invalid_usage(error):
 def sitemap():
     return generate_sitemap(app)
 
-@app.route('/register', methods=['POST'])
+@app.route('/users', methods=['POST'])
 def handle_register():
 
     json = request.get_json()
@@ -56,23 +57,21 @@ def handle_register():
         first_name = json['first_name'],
         last_name = json['last_name'],
         username = json['username'],
-        password = json['password'],
+        password = utils.sha256(json['password']),
         date_of_birth = json['date_of_birth'],
         email = json['email']
     ))
     db.session.commit()
     return jsonify(json)
 
-
-
-@app.route('/login', methods=['POST'])
+@app.route('/users/token', methods=['POST'])
 def handle_login():
 
     json = request.get_json()
 
     user = Users.query.filter_by(
         username = json['username'],
-        password = json['password']
+        password = utils.sha256(json['password'])
     ).first()
 
     if user is None:
@@ -80,11 +79,48 @@ def handle_login():
 
     return jsonify(create_jwt(identity=json['username']))
 
-@app.route('/seeds', methods=['POST', 'GET'])
+@app.route('/seeds', methods=[ 'GET'])
 def seed():
     seeds.run()
     return 'seeds ran'
 
+@app.route('/polls', methods=['POST'])
+@jwt_required
+def poll_maker():
+    
+    json = request.get_json()
+
+    property_check = ['poll_question','poll_description','option1','option2']
+    missing_props = []
+    empty_props = []
+    for prop in property_check:
+        if prop not in json:
+            missing_props.append(prop)
+    if len(missing_props) > 0:
+        raise APIException(f'Missing {", ".join(missing_props)} property in json')
+
+    for prop in property_check:
+        if json[prop] == "":
+            empty_props.append(prop)
+    if len(empty_props) > 0:
+        raise APIException(f'Missing {", ".join(empty_props)} data in json')
+
+    client = Users(
+        username = json['username']
+    )
+
+    db.session.add(Polls(
+        poll_question = json['poll_question'],
+        creator_user_id = client.id,
+        poll_description = json['poll_description'],
+        info_link = json['info_link'],
+        option1 = json['option1'],
+        option2 = json['option2'],
+        option3 = json['option3'],
+        option4 = json['option4']
+    ))
+    db.session.commit()
+    return jsonify(json)
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
