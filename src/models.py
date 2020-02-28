@@ -56,10 +56,10 @@ class Polls(db.Model):
         return {
             "id": self.id,
             "poll_question": self.poll_question,
-            "poll_description": self.poll_descripstion,
+            "poll_description": self.poll_description,
             "date_started" : self.date_started,
             "info_link" : self.info_link,
-            "creator_user": self.user.serialize(),
+            "creator_user": self.creator_user.serialize(),
             "option1" : self.option1,
             "option2" : self.option2,
             "option3" : self.option3,

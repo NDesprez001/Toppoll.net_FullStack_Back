@@ -33,7 +33,7 @@ def handle_invalid_usage(error):
 def sitemap():
     return generate_sitemap(app)
 
-@app.route('/users', methods=['POST'])
+@app.route('/users', methods=['POST']) #register
 def handle_register():
 
     json = request.get_json()
@@ -64,7 +64,7 @@ def handle_register():
     db.session.commit()
     return jsonify(json)
 
-@app.route('/users/token', methods=['POST'])
+@app.route('/users/token', methods=['POST']) #login
 def handle_login():
 
     json = request.get_json()
@@ -79,13 +79,13 @@ def handle_login():
 
     return jsonify(create_jwt(identity=json['username']))
 
-@app.route('/seeds', methods=[ 'GET'])
+@app.route('/seeds', methods=[ 'GET']) #clean tables
 def seed():
     seeds.run()
     return 'seeds ran'
 
 
-@app.route('/polls', methods=['GET'])
+@app.route('/polls', methods=['GET']) #show all the polls
 def get_polls():
     polls = Polls.query.all()
     list_of_polls = [{
@@ -95,13 +95,13 @@ def get_polls():
     return jsonify( list_of_polls )
 
 
-@app.route('/polls/<int:id>', methods=['GET'])
+@app.route('/polls/<int:id>', methods=['GET']) #get a poll by id
 def get_poll(id):
     poll = Polls.query.get(id)
     return jsonify( poll.serialize() )
 
 
-@app.route('/polls/<int:user_id>', methods=['POST'])
+@app.route('/polls/<int:user_id>', methods=['POST']) #make a poll
 @jwt_required
 def poll_maker():
     
@@ -124,7 +124,7 @@ def poll_maker():
 
     client = Users.query.get(user_id)
     if client is None:
-        raise APIException(f'User not found')
+        raise APIException(f'User not found: 404')
 
     db.session.add(Polls(
         poll_question = json['poll_question'],
