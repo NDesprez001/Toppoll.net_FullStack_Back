@@ -8,7 +8,7 @@ class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(40))
     last_name = db.Column(db.String(40))
-    username = db.Column(db.String(40))
+    username = db.Column(db.String(40), unique=True)
     password = db.Column(db.String(70))
     date_of_birth = db.Column(db.String(10))
     email = db.Column(db.String(120))
@@ -27,7 +27,8 @@ class Users(db.Model):
             "last_name": self.last_name,
             "username": self.username,
             "date of birth": self.date_of_birth,
-            "email": self.email
+            "email": self.email,
+            "polls_created": [b.serialize() for b in self.polls_created]
         }
 
 
@@ -71,7 +72,9 @@ class Voters_Table(db.Model):
     __tablename__ = 'voters_table'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    username = db.Column(db.String(40))
     poll_id = db.Column(db.Integer, db.ForeignKey('polls.id'))
+    poll_name = db.Column(db.String(100))
 
     user = db.relationship('Users', back_populates='votes')
     poll = db.relationship('Polls', back_populates='votes')
@@ -84,7 +87,13 @@ class Voters_Table(db.Model):
             "id": self.id,
             "user_id" : self.user_id,
             "username": self.user.username,
-            "poll_id" : self.poll_id
+            "poll_id" : self.poll_id,
+            "poll_name" : self.poll.poll_question,
+            # "my_name": "issac",
+            # "understand you can put anything here": self.user.password,
+            # "user dob": self.user.date_of_birth,
+            # "poll_data": self.poll.poll_description,
+            # "more poll": self.poll.poll_question
         }
 # class Person(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)

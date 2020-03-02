@@ -3,10 +3,12 @@ import utils
 def run():
 
     Polls.query.delete()
-    Users.query.delete()  
+    Users.query.delete()
+    Voters_Table.query.delete() 
     
     db.session.execute("ALTER TABLE polls AUTO_INCREMENT = 1")
     db.session.execute("ALTER TABLE users AUTO_INCREMENT = 1")
+    db.session.execute("ALTER TABLE voters_table AUTO_INCREMENT = 1")
 
     ##################
     #     USERS
@@ -130,6 +132,16 @@ def run():
         option4 = ""
     ))
 
+    ##################
+    #  VOTERS_TABLE
+    ##################
+
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 2,
+        username = "Curly-Fry",
+        poll_name = "Who would you want to do your front-end?"
+    ))
 
     db.session.commit()
     return 'seeds ran successfully'
