@@ -50,8 +50,19 @@ class Polls(db.Model):
     creator_user = db.relationship('Users', back_populates='polls_created')
     votes = db.relationship('Voters_Table', back_populates='poll')
 
-    
-        
+    def calculate_vote_percentages(self):
+        options = ['option1','option2','option3','option4']
+        count = {}
+        for option in options:
+            attr = getattr(self, option)
+            if attr is not None:
+                count[ attr ] = 0
+        for vote in self.votes:
+            count[ vote.option_picked ] += 1
+        for option, numb in count.items():
+            count[option] = float(numb)/len(self.votes)*100
+
+        return count
 
 
     def __repr__(self):
