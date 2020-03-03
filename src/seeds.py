@@ -1,10 +1,10 @@
-from models import db, Users, Polls
+from models import db, Users, Polls, Voters_Table
 import utils
 def run():
 
+    Voters_Table.query.delete() 
     Polls.query.delete()
     Users.query.delete()
-    Voters_Table.query.delete() 
     
     db.session.execute("ALTER TABLE polls AUTO_INCREMENT = 1")
     db.session.execute("ALTER TABLE users AUTO_INCREMENT = 1")

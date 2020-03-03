@@ -50,6 +50,10 @@ class Polls(db.Model):
     creator_user = db.relationship('Users', back_populates='polls_created')
     votes = db.relationship('Voters_Table', back_populates='poll')
 
+    
+        
+
+
     def __repr__(self):
         return '<Polls %r>' % self.poll_question
 
@@ -75,6 +79,7 @@ class Voters_Table(db.Model):
     username = db.Column(db.String(40))
     poll_id = db.Column(db.Integer, db.ForeignKey('polls.id'))
     poll_name = db.Column(db.String(100))
+    option_picked = db.Column(db.String(150), nullable=False)
 
     user = db.relationship('Users', back_populates='votes')
     poll = db.relationship('Polls', back_populates='votes')
@@ -89,6 +94,7 @@ class Voters_Table(db.Model):
             "username": self.user.username,
             "poll_id" : self.poll_id,
             "poll_name" : self.poll.poll_question,
+            "option_picked" : self.option_picked
             # "my_name": "issac",
             # "understand you can put anything here": self.user.password,
             # "user dob": self.user.date_of_birth,

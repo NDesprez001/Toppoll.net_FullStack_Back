@@ -211,7 +211,7 @@ def vote():
     # user = Users.query.get(a)
     # poll = Polls.query.get(b)
 
-    return  "hi"  #f'{user.username} voted in {poll.poll_question}.'
+    
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
