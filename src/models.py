@@ -51,6 +51,8 @@ class Polls(db.Model):
     votes = db.relationship('Voters_Table', back_populates='poll')
 
     def calculate_vote_percentages(self):  #finds the percentages of the votes
+        if len(self.votes) == 0:
+            return {}
         options = ['option1','option2','option3','option4']
         count = {}
         for option in options:
@@ -75,11 +77,12 @@ class Polls(db.Model):
             "poll_description": self.poll_description,
             "date_started" : self.date_started,
             "info_link" : self.info_link,
-            "creator_user": self.creator_user.serialize(),
+            "creator_user": self.creator_user.username,
             "option1" : self.option1,
             "option2" : self.option2,
             "option3" : self.option3,
             "option4" : self.option4,
+            "percentages": self.calculate_vote_percentages(),
             "voting_users" : [a.serialize() for a in self.votes]
         }
 

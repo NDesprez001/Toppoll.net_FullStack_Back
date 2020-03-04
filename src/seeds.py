@@ -22,15 +22,15 @@ def run():
         email = 'issacalleyne@gmail.com'
     )
     db.session.add(Issac)
-    Noz = Users(
+    Naz = Users(
         first_name = 'Nhinhoshxhy',
         last_name = 'Desprez',
-        username = 'Noz',
+        username = 'Naz',
         password = utils.sha256('HHH'),
         date_of_birth = '1/2/1999',
         email = 'noztril@gmail.com'
     )
-    db.session.add(Noz)
+    db.session.add(Naz)
     Chouerlee = Users(
         first_name = 'Chouerlee',
         last_name = 'Victor',
@@ -92,28 +92,26 @@ def run():
         option4 = "I really don't care"
     ))
     db.session.add(Polls(
-        creator_user = Noz,
+        creator_user = Naz,
         poll_question = "Are Even numbers better than Odd numbers?",
         poll_description = "This is dumb",
         info_link = "",
         option1 = "Evens are Better",
         option2 = "Odds are Awesome",
-        option3 = "This is really dumb",
-        option4 = ""
+        option3 = "This is really dumb"
     ))
     db.session.add(Polls(
         creator_user = Zion,
-        poll_question = "Does he really need to come to class?",
+        poll_question = "Does Zion really need to come to class?",
         poll_description = "Zion has ditched 3 days in a row, should we be concerned",
         info_link = "",
         option1 = "Nah, let him spend time with his girl!",
         option2 = "His future is important, get his ass in class",
-        option3 = "I forgot Zion was in this class",
-        option4 = ""
+        option3 = "I forgot Zion was in this class"
     ))
     db.session.add(Polls(
         creator_user = Rajae,
-        poll_question = "How rich will I be?",
+        poll_question = "How rich will Rajae be?",
         poll_description = "We all know Raj is gonna make it big, the question is; how big?",
         info_link = "https://media1.giphy.com/media/PyZEkItObZrnW/giphy.gif",
         option1 = "Millionaire",
@@ -123,13 +121,12 @@ def run():
     ))
     db.session.add(Polls(
         creator_user = Anthony,
-        poll_question = "Do my pants make my ass look big?",
+        poll_question = "Do these pants make Anthony's ass look big?",
         poll_description = "This is very important information?",
         info_link = "",
         option1 = "Yes",
         option2 = "Nah",
-        option3 = "They make you look gay",
-        option4 = ""
+        option3 = "They make you look gay"
     ))
 
     ##################
@@ -137,11 +134,261 @@ def run():
     ##################
 
     db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 1,
+        username = "kolis10",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "Naz"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 1,
+        username = "Naz",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "Naz"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 1,
+        username = "Curly-Fry",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "Anthony"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 1,
+        username = "Coder",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "Zion???"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 1,
+        username = "Rager",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "They're all overrated"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 1,
+        username = "Tony",
+        poll_name = "Who would you want to do your front-end?",
+        option_picked = "Anthony"
+    ))
+    #########################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 2,
+        username = "kolis10",
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "Back-End"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 2,
+        username = "Naz",
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "I like them equally"
+    ))
+    db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 2,
         username = "Curly-Fry",
-        poll_name = "Who would you want to do your front-end?"
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "Front-End"
     ))
-
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 2,
+        username = "Coder",
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "I like them equally"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 2,
+        username = "Rager",
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "I like them equally"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 2,
+        username = "Tony",
+        poll_name = "Which do you prefer; front-end or back-end?",
+        option_picked = "Front-End"
+    ))
+    ######################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 3,
+        username = "kolis10",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "This is really dumb"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 3,
+        username = "Naz",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "Evens are Better"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 3,
+        username = "Curly-Fry",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "Evens are Better"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 3,
+        username = "Coder",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "Odds are Awesome"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 3,
+        username = "Rager",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "Evens are Better"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 3,
+        username = "Tony",
+        poll_name = "Are Even numbers better than Odd numbers?",
+        option_picked = "This is really dumb"
+    ))
+    ########################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 4,
+        username = "kolis10",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "His future is important, get his ass in class"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 4,
+        username = "Naz",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "His future is important, get his ass in class"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 4,
+        username = "Curly-Fry",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "His future is important, get his ass in class"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 4,
+        username = "Coder",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "Nah, let him spend time with his girl!"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 4,
+        username = "Rager",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "His future is important, get his ass in class"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 4,
+        username = "Tony",
+        poll_name = "Does Zion really need to come to class?",
+        option_picked = "I forgot Zion was in this class"
+    ))
+    ###########################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 5,
+        username = "kolis10",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "Middle Class at best"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 5,
+        username = "Naz",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "Millionaire"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 5,
+        username = "Curly-Fry",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "Middle Class at best"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 5,
+        username = "Coder",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "Middle Class at best"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 5,
+        username = "Rager",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "So rich they have to make up a new number for it"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 5,
+        username = "Tony",
+        poll_name = "How rich will Rajae be?",
+        option_picked = "Middle Class at best"
+    ))
+    ######################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 6,
+        username = "kolis10",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "They make you look gay"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 6,
+        username = "Naz",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "Nah"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 6,
+        username = "Curly-Fry",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "Yes"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 6,
+        username = "Coder",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "Nah"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 6,
+        username = "Rager",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "They make you look gay"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 6,
+        username = "Tony",
+        poll_name = "Do these pants make Anthony's ass look big?",
+        option_picked = "Yes"
+    ))
     db.session.commit()
     return 'seeds ran successfully'

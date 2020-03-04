@@ -114,20 +114,15 @@ def handle_login():
 
 
 @app.route('/seeds', methods=[ 'GET']) #clean tables
-def seed():
-    seeds.run()
-    return 'seeds ran'
+def seed(): 
+    return seeds.run()
 
 
 
 @app.route('/polls', methods=['GET']) #show all the polls
 def get_polls():
     polls = Polls.query.all()
-    list_of_polls = [{
-        'id': i.id,
-        'question': i.poll_question
-    } for i in polls]
-    return jsonify( list_of_polls )
+    return jsonify( [x.serialize() for x in polls] )
 
 
 @app.route('/polls/<int:id>', methods=['GET']) #get a poll by id
