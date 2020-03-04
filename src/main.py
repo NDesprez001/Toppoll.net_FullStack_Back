@@ -198,19 +198,6 @@ def vote():
     db.session.commit()
 
     return f'{voter.username} voted in: {voting_on.poll_question}.'
-
-    # db.session.add(Voters_Table(
-    #     user_id = json['user_id'],
-    #     poll_id = json['poll_id']
-    # ))
-    # db.session.commit()
-
-    # a = user_id
-    # b = poll_id
-
-    # user = Users.query.get(a)
-    # poll = Polls.query.get(b)
-
     
 
 # this only runs if `$ python src/main.py` is executed

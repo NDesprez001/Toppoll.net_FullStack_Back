@@ -2,7 +2,7 @@ from models import db, Users, Polls, Voters_Table
 import utils
 def run():
 
-    Voters_Table.query.delete() 
+    Voters_Table.query.delete()   #Arrange the deletes in the opposite order of the models
     Polls.query.delete()
     Users.query.delete()
     
