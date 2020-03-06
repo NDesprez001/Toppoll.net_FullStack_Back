@@ -6,9 +6,16 @@ def run():
     Polls.query.delete()
     Users.query.delete()
     
-    db.session.execute("ALTER TABLE polls AUTO_INCREMENT = 1")
-    db.session.execute("ALTER TABLE users AUTO_INCREMENT = 1")
-    db.session.execute("ALTER TABLE voters_table AUTO_INCREMENT = 1")
+    # MYSQL database for gitpod
+    # db.session.execute("ALTER TABLE polls AUTO_INCREMENT = 1")
+    # db.session.execute("ALTER TABLE users AUTO_INCREMENT = 1")
+    # db.session.execute("ALTER TABLE voters_table AUTO_INCREMENT = 1")
+ 
+    # POSTGRES database for heroku
+    db.session.execute("ALTER SEQUENCE polls_id_seq RESTART")
+    db.session.execute("ALTER SEQUENCE users_id_seq RESTART")
+    db.session.execute("ALTER SEQUENCE voters_table_id_seq RESTART")
+
 
     ##################
     #     USERS
