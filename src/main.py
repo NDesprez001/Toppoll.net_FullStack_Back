@@ -161,6 +161,7 @@ def poll_maker(user_id):
         creator_user_id = user_id,
         poll_description = json['poll_description'],
         info_link = json['info_link'],
+        image_link = json['image_link'],
         option1 = json['option1'],
         option2 = json['option2'],
         option3 = json['option3'],
@@ -187,7 +188,8 @@ def vote():
         user_id = json['user_id'],
         poll_id = json['poll_id'],
         username = voter.username,
-        poll_name = voting_on.poll_question
+        poll_name = voting_on.poll_question,
+        option_picked = json['option_picked']
     )
     db.session.add(v)
     db.session.commit()

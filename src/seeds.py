@@ -73,60 +73,66 @@ def run():
     ##################
     db.session.add(Polls(
         creator_user = Chouerlee,
-        poll_question = "Who would you want to do your front-end?",
-        poll_description = "Naz and Anthony both think themselves artists when it comes to web design, but we're gonna see who's the class favorite",
+        poll_question = "What's the best way to travel?",
+        poll_description = "A luxury cruise, flying first class, a glamourous bullet train, a scenic drive through the country; which getaway sounds best to you?",
         info_link = "",
-        option1 = "Naz",
-        option2 = "Anthony",
-        option3 = "Zion???",
-        option4 = "They're all overrated"
+        image_link = "https://images.pexels.com/photos/776030/pexels-photo-776030.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "Boat",
+        option2 = "Plane",
+        option3 = "Train",
+        option4 = "Drive Myself"
     ))
     db.session.add(Polls(
         creator_user = Issac,
-        poll_question = "Which do you prefer; front-end or back-end?",
-        poll_description = "Since the beginning of this class we've been divided on whether or not coding a webpage's data is more enjoyable than building the layout of the page.",
+        poll_question = "Is the government hiding aliens in area 51?",
+        poll_description = "Since no one really got inside, there's no proof that there's not.",
         info_link = "",
-        option1 = "Front-End",
-        option2 = "Back-End",
-        option3 = "I like them equally",
-        option4 = "I really don't care"
+        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_alien&url=https://stock.adobe.com/images/alien/126774473?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        option1 = "I'm a believer",
+        option2 = "Conspiracy Theories aren't my thing",
+        option3 = "The Government is hiding something, just not aliens",
+        option4 = "The Government would never lie to us. Ever."
     ))
     db.session.add(Polls(
         creator_user = Naz,
-        poll_question = "Are Even numbers better than Odd numbers?",
-        poll_description = "This is dumb",
-        info_link = "",
-        option1 = "Evens are Better",
-        option2 = "Odds are Awesome",
-        option3 = "This is really dumb"
+        poll_question = "Should the drinking age be lowered to 18?",
+        poll_description = "The drinking age is 21 everywhere in the United States, but are 18 year olds mature enough to drink responsibly?",
+        info_link = "https://drinkingage.procon.org/",
+        image_link = "https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "Yes",
+        option2 = "No, it's fine the way it is",
+        option3 = "It should be raised"
     ))
     db.session.add(Polls(
         creator_user = Zion,
-        poll_question = "Does Zion really need to come to class?",
-        poll_description = "Zion has ditched 3 days in a row, should we be concerned",
+        poll_question = "Is revenge cheating justified?",
+        poll_description = "If you're cheated on, you're hurt, angry, and feel disrespected, and rightfully so. But do you cheat back",
         info_link = "",
-        option1 = "Nah, let him spend time with his girl!",
-        option2 = "His future is important, get his ass in class",
-        option3 = "I forgot Zion was in this class"
+        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_cheating&url=https://stock.adobe.com/images/handsome-young-man-cheating-on-girlfriend-talking-with-lover-while-she-is-sleeping-in-the-background/171922635?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        option1 = "Yes, they have it coming",
+        option2 = "No, two wrongs won't make things right"
     ))
     db.session.add(Polls(
         creator_user = Rajae,
-        poll_question = "How rich will Rajae be?",
-        poll_description = "We all know Raj is gonna make it big, the question is; how big?",
-        info_link = "https://media1.giphy.com/media/PyZEkItObZrnW/giphy.gif",
-        option1 = "Millionaire",
-        option2 = "Billionaire",
-        option3 = "So rich they have to make up a new number for it",
-        option4 = "Middle Class at best"
+        poll_question = "Which is the better sport?",
+        poll_description = "Honestly, it's just a matter of opinion, but here, every opinion matters.",
+        info_link = "",
+        image_link = "https://i2.wp.com/digiday.com/wp-content/uploads/2014/10/naenae.gif?resize=320%2C240&ssl=1",
+        option1 = "Football. The American Version",
+        option2 = "Basketball",
+        option3 = "Baseball; there's a reason it's called America's Pastime.",
+        option4 = "I don't really watch these"
     ))
     db.session.add(Polls(
         creator_user = Anthony,
-        poll_question = "Do these pants make Anthony's ass look big?",
-        poll_description = "This is very important information?",
+        poll_question = "What element would you want to control?",
+        poll_description = "Is this is very important information? No, but it's fun.",
         info_link = "",
-        option1 = "Yes",
-        option2 = "Nah",
-        option3 = "They make you look gay"
+        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_4+elements&url=https://stock.adobe.com/images/calm-optimism-zen/230406210?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        option1 = "Water",
+        option2 = "Earth",
+        option3 = "Fire",
+        option4 = "Air"
     ))
 
     ##################
@@ -137,258 +143,258 @@ def run():
         user_id = 1,
         poll_id = 1,
         username = "kolis10",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "Naz"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Boat"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 1,
         username = "Naz",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "Naz"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Boat"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 1,
         username = "Curly-Fry",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "Anthony"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Plane"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 1,
         username = "Coder",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "Zion???"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Drive Myself"
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 1,
         username = "Rager",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "They're all overrated"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Boat"
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 1,
         username = "Tony",
-        poll_name = "Who would you want to do your front-end?",
-        option_picked = "Anthony"
+        poll_name = "What's the best way to travel?",
+        option_picked = "Plane"
     ))
     #########################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 2,
         username = "kolis10",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "Back-End"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "The Government is hiding something, just not aliens"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 2,
         username = "Naz",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "I like them equally"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "I'm a believer"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 2,
         username = "Curly-Fry",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "Front-End"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "Conspiracy Theories aren't my thing"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 2,
         username = "Coder",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "I like them equally"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "The Government would never lie to us. Ever."
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 2,
         username = "Rager",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "I like them equally"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "The Government would never lie to us. Ever."
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 2,
         username = "Tony",
-        poll_name = "Which do you prefer; front-end or back-end?",
-        option_picked = "Front-End"
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "I'm a believer"
     ))
     ######################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 3,
         username = "kolis10",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "This is really dumb"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "It should be raised"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 3,
         username = "Naz",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "Evens are Better"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "Yes"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 3,
         username = "Curly-Fry",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "Evens are Better"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "No, it's fine the way it is"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 3,
         username = "Coder",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "Odds are Awesome"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "Yes"
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 3,
         username = "Rager",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "Evens are Better"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "No, it's fine the way it is"
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 3,
         username = "Tony",
-        poll_name = "Are Even numbers better than Odd numbers?",
-        option_picked = "This is really dumb"
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "No, it's fine the way it is"
     ))
     ########################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 4,
         username = "kolis10",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "His future is important, get his ass in class"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "No, two wrongs won't make things right"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 4,
         username = "Naz",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "His future is important, get his ass in class"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "Yes, they have it coming"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 4,
         username = "Curly-Fry",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "His future is important, get his ass in class"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "Yes, they have it coming"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 4,
         username = "Coder",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "Nah, let him spend time with his girl!"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "Yes, they have it coming"
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 4,
         username = "Rager",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "His future is important, get his ass in class"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "No, two wrongs won't make things right"
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 4,
         username = "Tony",
-        poll_name = "Does Zion really need to come to class?",
-        option_picked = "I forgot Zion was in this class"
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "Yes, they have it coming"
     ))
     ###########################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 5,
         username = "kolis10",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "Middle Class at best"
+        poll_name = "Which is the better sport?",
+        option_picked = "Football. The American Version"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 5,
         username = "Naz",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "Millionaire"
+        poll_name = "Which is the better sport?",
+        option_picked = "Basketball"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 5,
         username = "Curly-Fry",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "Middle Class at best"
+        poll_name = "Which is the better sport?",
+        option_picked = "I don't really watch these"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 5,
         username = "Coder",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "Middle Class at best"
+        poll_name = "Which is the better sport?",
+        option_picked = "Basketball"
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 5,
         username = "Rager",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "So rich they have to make up a new number for it"
+        poll_name = "Which is the better sport?",
+        option_picked = "I don't really watch these"
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 5,
         username = "Tony",
-        poll_name = "How rich will Rajae be?",
-        option_picked = "Middle Class at best"
+        poll_name = "Which is the better sport?",
+        option_picked = "Basketball"
     ))
     ######################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 6,
         username = "kolis10",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "They make you look gay"
+        poll_name = "What element would you want to control?",
+        option_picked = "Earth"
     ))
     db.session.add(Voters_Table(
         user_id = 2,
         poll_id = 6,
         username = "Naz",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "Nah"
+        poll_name = "What element would you want to control?",
+        option_picked = "Air"
     ))
     db.session.add(Voters_Table(
         user_id = 3,
         poll_id = 6,
         username = "Curly-Fry",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "Yes"
+        poll_name = "What element would you want to control?",
+        option_picked = "Water"
     ))
     db.session.add(Voters_Table(
         user_id = 4,
         poll_id = 6,
         username = "Coder",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "Nah"
+        poll_name = "What element would you want to control?",
+        option_picked = "Water"
     ))
     db.session.add(Voters_Table(
         user_id = 5,
         poll_id = 6,
         username = "Rager",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "They make you look gay"
+        poll_name = "What element would you want to control?",
+        option_picked = "Fire"
     ))
     db.session.add(Voters_Table(
         user_id = 6,
         poll_id = 6,
         username = "Tony",
-        poll_name = "Do these pants make Anthony's ass look big?",
-        option_picked = "Yes"
+        poll_name = "What element would you want to control?",
+        option_picked = "Fire"
     ))
     db.session.commit()
     return 'seeds ran successfully'

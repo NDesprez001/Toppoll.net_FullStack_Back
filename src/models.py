@@ -38,8 +38,9 @@ class Polls(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     creator_user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     poll_question = db.Column(db.String(100))
-    poll_description = db.Column(db.String(1000))
+    poll_description = db.Column(db.String(500))
     info_link = db.Column(db.String(200))
+    image_link = db.Column(db.String(600))
     date_started = db.Column(db.DateTime, default=datetime.utcnow)
     
     option1 = db.Column(db.String(150), nullable=False)
@@ -77,6 +78,7 @@ class Polls(db.Model):
             "poll_description": self.poll_description,
             "date_started" : self.date_started,
             "info_link" : self.info_link,
+            "image_link" : self.image_link,
             "creator_user": self.creator_user.username,
             "option1" : self.option1,
             "option2" : self.option2,
