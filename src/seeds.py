@@ -126,9 +126,9 @@ def run():
     db.session.add(Polls(
         creator_user = Anthony,
         poll_question = "What element would you want to control?",
-        poll_description = "Is this is very important information? No, but it's fun.",
+        poll_description = "Manipulating the elements is a standard superpower to have, but often quite powerful. If you could choose one of these four elements, which would you master?",
         info_link = "",
-        image_link = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRREoEVMS5jGlDRNmiObNLNev0Hkq2Afc1UZsxj-f79-imVad-n",
+        image_link = "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         option1 = "Water",
         option2 = "Earth",
         option3 = "Fire",
