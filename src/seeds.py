@@ -115,7 +115,7 @@ def run():
     db.session.add(Polls(
         creator_user = Rajae,
         poll_question = "Which is the better sport?",
-        poll_description = "Honestly, it's just a matter of opinion, but here, every opinion matters.",
+        poll_description = "Sports are a part of everyday life, whether you prefer to play, watch or both. These three are some of the most popular in America, so how do they stack against each other?",
         info_link = "",
         image_link = "https://i2.wp.com/digiday.com/wp-content/uploads/2014/10/naenae.gif?resize=320%2C240&ssl=1",
         option1 = "Football. The American Version",
