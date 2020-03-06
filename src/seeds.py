@@ -85,9 +85,9 @@ def run():
     db.session.add(Polls(
         creator_user = Issac,
         poll_question = "Is the government hiding aliens in area 51?",
-        poll_description = "Since no one really got inside, there's no proof that there's not.",
+        poll_description = "If there were aliens, we'd know about it now, right? Or would we?",
         info_link = "",
-        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_alien&url=https://stock.adobe.com/images/alien/126774473?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        image_link = "https://images.pexels.com/photos/365625/pexels-photo-365625.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         option1 = "I'm a believer",
         option2 = "Conspiracy Theories aren't my thing",
         option3 = "The Government is hiding something, just not aliens",
@@ -108,7 +108,7 @@ def run():
         poll_question = "Is revenge cheating justified?",
         poll_description = "If you're cheated on, you're hurt, angry, and feel disrespected, and rightfully so. But do you cheat back",
         info_link = "",
-        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_cheating&url=https://stock.adobe.com/images/handsome-young-man-cheating-on-girlfriend-talking-with-lover-while-she-is-sleeping-in-the-background/171922635?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        image_link = "https://images.pexels.com/photos/3694011/pexels-photo-3694011.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         option1 = "Yes, they have it coming",
         option2 = "No, two wrongs won't make things right"
     ))
@@ -128,7 +128,7 @@ def run():
         poll_question = "What element would you want to control?",
         poll_description = "Is this is very important information? No, but it's fun.",
         info_link = "",
-        image_link = "https://clkde.tradedoubler.com/click?p=264311&a=3045532&g=24328740&epi=search_4+elements&url=https://stock.adobe.com/images/calm-optimism-zen/230406210?as_channel=affiliate&as_campaign=pexels&as_source=arvato",
+        image_link = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRREoEVMS5jGlDRNmiObNLNev0Hkq2Afc1UZsxj-f79-imVad-n",
         option1 = "Water",
         option2 = "Earth",
         option3 = "Fire",
