@@ -1,55 +1,76 @@
-    db.session.add(Voters_Table(
-        user_id = 1,
-        poll_id = 6,
+    ##################
+    #     CHATS
+    ##################
+    db.session.add(Messages(
+        poll_id = 1,
         username = "kolis10",
-        poll_name = "What element would you want to control?",
-        option_picked = "Earth"
+        message = "'Sup",
+        created_at = now
     ))
-    db.session.add(Voters_Table(
-        user_id = 2,
-        poll_id = 6,
+    db.session.add(Messages(
+        poll_id = 2,
         username = "Naz",
-        poll_name = "What element would you want to control?",
-        option_picked = "Air"
+        message = "Konichiwa",
+        created_at = now
     ))
-    db.session.add(Voters_Table(
-        user_id = 3,
-        poll_id = 6,
+    db.session.add(Messages(
+        poll_id = 3,
         username = "Curly-Fry",
-        poll_name = "What element would you want to control?",
-        option_picked = "Water"
+        message = "Hey",
+        created_at = now
     ))
-    db.session.add(Voters_Table(
-        user_id = 4,
-        poll_id = 6,
+    db.session.add(Messages(
+        poll_id = 4,
         username = "Coder",
-        poll_name = "What element would you want to control?",
-        option_picked = "Water"
+        message = "Dude",
+        created_at = now
     ))
-    db.session.add(Voters_Table(
-        user_id = 5,
-        poll_id = 6,
+    db.session.add(Messages(
+        poll_id = 5,
         username = "Rager",
-        poll_name = "What element would you want to control?",
-        option_picked = "Fire"
+        message = "Yo",
+        created_at = now
     ))
-    db.session.add(Voters_Table(
-        user_id = 6,
+    db.session.add(Messages(
         poll_id = 6,
         username = "Tony",
-        poll_name = "What element would you want to control?",
-        option_picked = "Fire"
+        message = "Hi",
+        created_at = now
     ))
-
-
-    db.session.add(Polls(
-        creator_user = Anthony,
-        poll_question = "What element would you want to control?",
-        poll_description = "Is this is very important information? No, but it's fun.",
-        info_link = "",
-        image_link = "",
-        option1 = "Water",
-        option2 = "Earth",
-        option3 = "Fire",
-        option4 = "Air"
+    ############################################
+    db.session.add(Messages(
+        poll_id = 1,
+        username = "Naz",
+        message = "Konichiwa, kolis10",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Messages(
+        poll_id = 2,
+        username = "kolis10",
+        message = "'Sup, Naz",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Messages(
+        poll_id = 3,
+        username = "Tony",
+        message = "Hi, Curly-Fry",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Messages(
+        poll_id = 4,
+        username = "Rager",
+        message = "Yo, Coder",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Messages(
+        poll_id = 5,
+        username = "Coder",
+        message = "Dude, Rager",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Messages(
+        poll_id = 6,
+        username = "Curly-Fry",
+        message = "Hey, Tony",
+        created_at = now + timedelta(minutes=2)
     ))

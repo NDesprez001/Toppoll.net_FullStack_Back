@@ -1,21 +1,26 @@
-from models import db, Users, Polls, Voters_Table
+from models import db, Users, Polls, Voters_Table, Chats
+from datetime import datetime, timedelta
 import utils
 def run():
 
-    Voters_Table.query.delete()   #Arrange the deletes in the opposite order of the models
+    Chats.query.delete()             #Arrange the deletes in the opposite order of the models
+    Voters_Table.query.delete()   
     Polls.query.delete()
     Users.query.delete()
     
     # MYSQL database for gitpod
+    db.session.execute("ALTER TABLE chats AUTO_INCREMENT = 1")
     db.session.execute("ALTER TABLE polls AUTO_INCREMENT = 1")
     db.session.execute("ALTER TABLE users AUTO_INCREMENT = 1")
     db.session.execute("ALTER TABLE voters_table AUTO_INCREMENT = 1")
  
     # POSTGRES database for heroku
+    # db.session.execute("ALTER SEQUENCE chats_id_seq RESTART")
     # db.session.execute("ALTER SEQUENCE polls_id_seq RESTART")
     # db.session.execute("ALTER SEQUENCE users_id_seq RESTART")
     # db.session.execute("ALTER SEQUENCE voters_table_id_seq RESTART")
 
+    now = datetime.utcnow()
 
     ##################
     #     USERS
@@ -402,6 +407,86 @@ def run():
         username = "Tony",
         poll_name = "What element would you want to control?",
         option_picked = "Fire"
+    ))
+    
+
+
+    ##################
+    #     CHATS
+    ##################
+
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "kolis10",
+        message = "'Sup",
+        created_at = now + timedelta(minutes=1)
+    ))
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "Naz",
+        message = "Konichiwa",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "Curly-Fry",
+        message = "Hey",
+        created_at = now + timedelta(minutes=3)
+    ))
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "Coder",
+        message = "Dude",
+        created_at = now + timedelta(minutes=4)
+    ))
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "Rager",
+        message = "Yo",
+        created_at = now + timedelta(minutes=5)
+    ))
+    db.session.add(Chats(
+        poll_id = 1,
+        username = "Tony",
+        message = "Hi",
+        created_at = now + timedelta(minutes=6)
+    ))
+    ############################################
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "Naz",
+        message = "Konichiwa, kolis10",
+        created_at = now + timedelta(minutes=1)
+    ))
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "kolis10",
+        message = "'Sup, Naz",
+        created_at = now + timedelta(minutes=2)
+    ))
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "Tony",
+        message = "Hi, Curly-Fry",
+        created_at = now + timedelta(minutes=3)
+    ))
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "Rager",
+        message = "Yo, Coder",
+        created_at = now + timedelta(minutes=4)
+    ))
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "Coder",
+        message = "Dude, Rager",
+        created_at = now + timedelta(minutes=5)
+    ))
+    db.session.add(Chats(
+        poll_id = 2,
+        username = "Curly-Fry",
+        message = "Hey, Tony",
+        created_at = now + timedelta(minutes=6)
     ))
     db.session.commit()
     return 'seeds ran successfully'
