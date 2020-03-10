@@ -11,7 +11,7 @@ from flask_swagger import swagger
 from flask_cors import CORS
 from flask_jwt_simple import JWTManager, create_jwt, jwt_required
 from utils import APIException, generate_sitemap
-from models import db, Users, Polls, Voters_Table
+from models import db, Users, Polls, Voters_Table, Chats
 #from models import Person
 
 app = Flask(__name__)
@@ -196,6 +196,27 @@ def vote():
 
     return f'{voter.username} voted in: {voting_on.poll_question}.'
     
+
+@app.route('/chat', methods=['POST']) #add message to poll
+def chat():
+    json = request.get_json()
+
+    post = Chats(
+        poll_id = json["poll_id"],
+        username = json["username"],
+        message = json["message"]
+    )
+    db.session.add(post)
+    db.session.commit()
+
+    return 'added to chat'
+
+@app.route('/chats/<int:id>')
+def get_chats(id):
+
+    chat = Chats.query.filter_by( chat_id=id ).order_by( Chats.created_at.asc() )
+
+    return jsonify([a.serialize() for a in chat])
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
