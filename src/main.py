@@ -118,6 +118,15 @@ def seed():
     return seeds.run()
 
 
+@app.route('/all_users', methods=['GET']) #show all the users
+def get_users():
+    users = Users.query.all()
+    return jsonify( [{
+        'first_name': x.first_name,
+        'last_name': x.last_name,
+        'username': x.username
+    } for x in users] )
+
 
 @app.route('/polls', methods=['GET']) #show all the polls
 def get_polls():
