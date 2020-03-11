@@ -68,7 +68,7 @@ def handle_register():
 
     json = request.get_json()
 
-    property_check = ['first_name','last_name','username','password','date_of_birth','email']
+    property_check = ['first_name','last_name','username','password','email']
     missing_props = []
     empty_props = []
     for prop in property_check:
@@ -88,7 +88,7 @@ def handle_register():
         last_name = json['last_name'],
         username = json['username'],
         password = utils.sha256(json['password']),
-        date_of_birth = json['date_of_birth'],
+        date_of_birth = json.get('date_of_birth'),
         email = json['email']
     ))
     db.session.commit()
