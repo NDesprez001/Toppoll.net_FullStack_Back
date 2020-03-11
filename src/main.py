@@ -206,7 +206,8 @@ def vote():
     return f'{voter.username} voted in: {voting_on.poll_question}.'
     
 
-@app.route('/chat', methods=['POST']) #add message to poll
+@app.route('/chat', methods=['POST']) #add message to chat in poll
+@jwt_required
 def chat():
     json = request.get_json()
 
