@@ -78,7 +78,24 @@ def run():
         date_of_birth = '1/23/1995',
         email = 'anthony@gmail.com'
     )
-    db.session.add(Anthony)
+    Hernan = Users(
+        first_name = 'Hernan',
+        last_name = 'Garcia',
+        username = 'Garcia Sausage',
+        password = utils.sha256('geek'),
+        date_of_birth = '5/17/1984',
+        email = 'hgs@gmail.com'
+    )
+    db.session.add(Hernan)
+    Ms_Achille = Users(
+        first_name = 'Classified',
+        last_name = 'Achille',
+        username = 'Boss Mom',
+        password = utils.sha256('off-center'),
+        date_of_birth = '5/17/1978',
+        email = 'gotoclass@gmail.com'
+    )
+    db.session.add(Ms_Achille)
 
     ##################
     #     POLLS
@@ -146,6 +163,38 @@ def run():
         option3 = "Fire",
         option4 = "Air"
     ))
+    db.session.add(Polls(
+        creator_user = Hernan,
+        poll_question = "If you could travel in time, what would you want to see?",
+        poll_description = "A world far off or long forgotten, time travel has much appeal, but is it for you?",
+        info_link = "",
+        image_link = "https://images.pexels.com/photos/552598/pexels-photo-552598.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "The past",
+        option2 = "The future",
+        option3 = "There is enough in the present"
+    ))
+    db.session.add(Polls(
+        creator_user = Ms_Achille,
+        poll_question = "If you could have one of these superpowers, which one would you choose?",
+        poll_description = "We've all dreamt of having superpowers and being more than ordinary; which of these abilities fits you best?",
+        info_link = "",
+        image_link = "https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "Invisibility",
+        option2 = "Super Strength",
+        option3 = "Flight",
+        option4 = "Telekinesis"
+    ))
+    db.session.add(Polls(
+        creator_user = Naz,
+        poll_question = "Is this website visually appealing?",
+        poll_description = "The person who designed it went crazy on every little detail, but honestly you don't have to like it, tell us what you think.",
+        info_link = "",
+        image_link = "https://images.pexels.com/photos/57690/pexels-photo-57690.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "It looks very good",
+        option2 = "It's okay",
+        option3 = "Not great, TBH",
+        option4 = "I honestly don't care"
+    ))
 
     ##################
     #  VOTERS_TABLE
@@ -193,6 +242,20 @@ def run():
         poll_name = "What's the best way to travel?",
         option_picked = "Plane"
     ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 1,
+        username = "Garcia Sausage",
+        poll_name = "What's the best way to travel?",
+        option_picked = "Drive Myself"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 1,
+        username = "Boss Mom",
+        poll_name = "What's the best way to travel?",
+        option_picked = "Plane"
+    ))
     #########################################
     db.session.add(Voters_Table(
         user_id = 1,
@@ -235,6 +298,20 @@ def run():
         username = "Tony",
         poll_name = "Is the government hiding aliens in area 51?",
         option_picked = "I'm a believer"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 2,
+        username = "Garcia Sausage",
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "I'm a believer"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 2,
+        username = "Boss Mom",
+        poll_name = "Is the government hiding aliens in area 51?",
+        option_picked = "The Government is hiding something, just not aliens"
     ))
     ######################################
     db.session.add(Voters_Table(
@@ -279,7 +356,21 @@ def run():
         poll_name = "Should the drinking age be lowered to 18?",
         option_picked = "No, it's fine the way it is"
     ))
-    ########################################
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 3,
+        username = "Garcia Sausage",
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "Yes"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 3,
+        username = "Boss Mom",
+        poll_name = "Should the drinking age be lowered to 18?",
+        option_picked = "It should be raised"
+    ))
+    #######################################
     db.session.add(Voters_Table(
         user_id = 1,
         poll_id = 4,
@@ -319,6 +410,20 @@ def run():
         user_id = 6,
         poll_id = 4,
         username = "Tony",
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "Yes, they have it coming"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 4,
+        username = "Garcia Sausage",
+        poll_name = "Is revenge cheating justified?",
+        option_picked = "No, two wrongs won't make things right"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 4,
+        username = "Boss Mom",
         poll_name = "Is revenge cheating justified?",
         option_picked = "Yes, they have it coming"
     ))
@@ -365,6 +470,20 @@ def run():
         poll_name = "Which is the better sport?",
         option_picked = "Basketball"
     ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 5,
+        username = "Garcia Sausage",
+        poll_name = "Which is the better sport?",
+        option_picked = "Baseball; there's a reason it's called America's Pastime."
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 5,
+        username = "Boss Mom",
+        poll_name = "Which is the better sport?",
+        option_picked = "Football. The American Version"
+    ))
     ######################################
     db.session.add(Voters_Table(
         user_id = 1,
@@ -408,7 +527,134 @@ def run():
         poll_name = "What element would you want to control?",
         option_picked = "Fire"
     ))
-    
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 6,
+        username = "Garcia Sausage",
+        poll_name = "What element would you want to control?",
+        option_picked = "Air"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 6,
+        username = "Boss Mom",
+        poll_name = "What element would you want to control?",
+        option_picked = "Fire"
+    ))
+    ######################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 7,
+        username = "kolis10",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "The past"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 7,
+        username = "Naz",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "There is enough in the present"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 7,
+        username = "Curly-Fry",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "There is enough in the present"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 7,
+        username = "Coder",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "The past"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 7,
+        username = "Rager",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "The future"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 7,
+        username = "Tony",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "The past"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 7,
+        username = "Garcia Sausage",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "There is enough in the present"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 7,
+        username = "Boss Mom",
+        poll_name = "If you could travel in time, what would you want to see?",
+        option_picked = "The future"
+    ))
+    ######################################
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 8,
+        username = "kolis10",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Telekinesis"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 8,
+        username = "Naz",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Super Strength"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 8,
+        username = "Curly-Fry",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Flight"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 8,
+        username = "Coder",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Flight"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 8,
+        username = "Rager",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Super Strength"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 8,
+        username = "Tony",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Invisibility"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 8,
+        username = "Garcia Sausage",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Telekinesis"
+    ))
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 8,
+        username = "Boss Mom",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Invisibility"
+    ))
 
 
     ##################

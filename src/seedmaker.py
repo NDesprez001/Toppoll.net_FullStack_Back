@@ -1,76 +1,72 @@
     ##################
-    #     CHATS
+    #     POLLS
     ##################
-    db.session.add(Messages(
-        poll_id = 1,
+    db.session.add(Voters_Table(
+        user_id = 1,
+        poll_id = 8,
         username = "kolis10",
-        message = "'Sup",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Telekinesis"
     ))
-    db.session.add(Messages(
-        poll_id = 2,
+    db.session.add(Voters_Table(
+        user_id = 2,
+        poll_id = 8,
         username = "Naz",
-        message = "Konichiwa",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Super Strength"
     ))
-    db.session.add(Messages(
-        poll_id = 3,
+    db.session.add(Voters_Table(
+        user_id = 3,
+        poll_id = 8,
         username = "Curly-Fry",
-        message = "Hey",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Flight"
     ))
-    db.session.add(Messages(
-        poll_id = 4,
+    db.session.add(Voters_Table(
+        user_id = 4,
+        poll_id = 8,
         username = "Coder",
-        message = "Dude",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Flight"
     ))
-    db.session.add(Messages(
-        poll_id = 5,
+    db.session.add(Voters_Table(
+        user_id = 5,
+        poll_id = 8,
         username = "Rager",
-        message = "Yo",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Super Strength"
     ))
-    db.session.add(Messages(
-        poll_id = 6,
+    db.session.add(Voters_Table(
+        user_id = 6,
+        poll_id = 8,
         username = "Tony",
-        message = "Hi",
-        created_at = now
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Invisibility"
     ))
-    ############################################
-    db.session.add(Messages(
-        poll_id = 1,
-        username = "Naz",
-        message = "Konichiwa, kolis10",
-        created_at = now + timedelta(minutes=2)
+    db.session.add(Voters_Table(
+        user_id = 7,
+        poll_id = 8,
+        username = "Garcia Sausage",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Telekinesis"
     ))
-    db.session.add(Messages(
-        poll_id = 2,
-        username = "kolis10",
-        message = "'Sup, Naz",
-        created_at = now + timedelta(minutes=2)
+    db.session.add(Voters_Table(
+        user_id = 8,
+        poll_id = 8,
+        username = "Boss Mom",
+        poll_name = "If you could have one of these superpowers, which one would you choose?",
+        option_picked = "Invisibility"
     ))
-    db.session.add(Messages(
-        poll_id = 3,
-        username = "Tony",
-        message = "Hi, Curly-Fry",
-        created_at = now + timedelta(minutes=2)
-    ))
-    db.session.add(Messages(
-        poll_id = 4,
-        username = "Rager",
-        message = "Yo, Coder",
-        created_at = now + timedelta(minutes=2)
-    ))
-    db.session.add(Messages(
-        poll_id = 5,
-        username = "Coder",
-        message = "Dude, Rager",
-        created_at = now + timedelta(minutes=2)
-    ))
-    db.session.add(Messages(
-        poll_id = 6,
-        username = "Curly-Fry",
-        message = "Hey, Tony",
-        created_at = now + timedelta(minutes=2)
+
+
+    db.session.add(Polls(
+        creator_user = Ms_Achille,
+        poll_question = "If you could have one of these superpowers, which one would you choose?",
+        poll_description = "We've all dreamt of having superpowers and being more than ordinary; which of these abilities fits you best?",
+        info_link = "",
+        image_link = "https://images.pexels.com/photos/346796/pexels-photo-346796.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        option1 = "Invisibility",
+        option2 = "Super Strength",
+        option3 = "Flight",
+        option4 = "Telekinesis"
     ))
